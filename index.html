@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>무상 | 자동차 아키텍처 플랫폼 PM</title>
+  <meta name="description" content="32년 경력의 자동차 구조 전문가, BOF 플랫폼 PM 무상의 프로필" />
+
+  <!-- 다크 모드 깜빡임 방지: 페이지가 그려지기 전에 테마 적용 -->
+  <script>
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Pretendard', 'system-ui', 'sans-serif'] },
+          colors: {
+            ink: { DEFAULT: '#0f172a', soft: '#334155' },
+            accent: { DEFAULT: '#2563eb', light: '#60a5fa' },
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Pretendard 폰트 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="bg-white text-ink dark:bg-slate-950 dark:text-slate-200 font-sans antialiased transition-colors duration-300">
+
+  <!-- ============ 상단 메뉴 ============ -->
+  <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#home" class="text-xl font-bold tracking-tight">
+        무상<span class="text-accent">.</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-ink-soft dark:text-slate-400">
+        <li><a href="#about" class="nav-link">소개</a></li>
+        <li><a href="#career" class="nav-link">경력</a></li>
+        <li><a href="#skills" class="nav-link">전문 분야</a></li>
+        <li><a href="#projects" class="nav-link">프로젝트</a></li>
+        <li><a href="#contact" class="nav-link">연락처</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <button id="theme-toggle" aria-label="다크 모드 전환"
+          class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <!-- 해 아이콘 (다크 모드일 때 표시) -->
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <!-- 달 아이콘 (라이트 모드일 때 표시) -->
+          <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
+        <button id="menu-toggle" aria-label="메뉴 열기" aria-expanded="false"
+          class="md:hidden w-10 h-10 rounded-full flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 모바일 메뉴 -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-950/95 backdrop-blur">
+      <ul class="px-4 py-4 space-y-1 text-base font-medium">
+        <li><a href="#about" class="mobile-link block py-2">소개</a></li>
+        <li><a href="#career" class="mobile-link block py-2">경력</a></li>
+        <li><a href="#skills" class="mobile-link block py-2">전문 분야</a></li>
+        <li><a href="#projects" class="mobile-link block py-2">프로젝트</a></li>
+        <li><a href="#contact" class="mobile-link block py-2">연락처</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 첫 화면 ============ -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden">
+      <div class="absolute inset-0 grid-bg pointer-events-none"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-32 w-full">
+        <p class="reveal inline-flex items-center gap-2 text-sm font-semibold text-accent bg-blue-50 dark:bg-blue-950/50 px-3 py-1 rounded-full mb-6">
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
+          현재 BOF 플랫폼 PM
+        </p>
+        <h1 class="reveal text-5xl sm:text-7xl font-extrabold tracking-tight leading-tight">
+          안녕하세요,<br />
+          <span class="text-accent">무상</span>입니다.
+        </h1>
+        <p class="reveal mt-6 text-xl sm:text-2xl font-semibold text-ink-soft dark:text-slate-300">
+          자동차 아키텍처 플랫폼 PM
+        </p>
+        <p class="reveal mt-4 max-w-2xl text-lg text-slate-500 dark:text-slate-400 leading-relaxed">
+          32년간 패키지, 중량관리, 경쟁차 분석, 전산개발, 아키텍처 플랫폼 개발을 거쳐
+          자동차 구조 전반을 이해하는 플랫폼을 만들고 있습니다.
+        </p>
+        <div class="reveal mt-10 flex flex-wrap gap-3">
+          <a href="#contact" class="px-6 py-3 rounded-lg bg-accent text-white font-semibold hover:bg-blue-700 transition shadow-lg shadow-blue-500/20">
+            연락하기
+          </a>
+          <a href="#projects" class="px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 font-semibold hover:border-accent hover:text-accent transition">
+            프로젝트 보기
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 소개 ============ -->
+    <section id="about" class="py-24 bg-slate-50 dark:bg-slate-900/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="section-title reveal">소개</h2>
+        <div class="grid md:grid-cols-5 gap-12 items-start">
+          <div class="md:col-span-3 space-y-5 text-lg leading-relaxed text-ink-soft dark:text-slate-300 reveal">
+            <p>
+              자동차 개발 현장에서 <strong class="text-ink dark:text-white">32년</strong>을 일했습니다.
+              차량 패키지 설계에서 시작해 중량관리, 경쟁차 분석, 전산개발까지
+              차를 이루는 구조를 여러 각도에서 다뤄 왔습니다.
+            </p>
+            <p>
+              이 경험을 바탕으로 아키텍처 플랫폼 개발을 이끌었고,
+              지금은 <strong class="text-ink dark:text-white">BOF 플랫폼 PM</strong>으로서
+              여러 차종이 함께 쓰는 플랫폼의 방향과 일정을 책임지고 있습니다.
+            </p>
+          </div>
+          <div class="md:col-span-2 grid grid-cols-2 gap-4 reveal">
+            <div class="stat-card">
+              <p class="stat-num"><span class="counter" data-target="32">0</span>년</p>
+              <p class="stat-label">자동차 개발 경력</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-num"><span class="counter" data-target="6">0</span>개</p>
+              <p class="stat-label">거쳐 온 전문 분야</p>
+            </div>
+            <div class="stat-card col-span-2">
+              <p class="stat-num text-2xl">자동차 구조 전문가</p>
+              <p class="stat-label">패키지부터 플랫폼까지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 경력 흐름 ============ -->
+    <section id="career" class="py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="section-title reveal">경력 흐름</h2>
+        <ol class="relative border-l-2 border-slate-200 dark:border-slate-800 ml-3 space-y-10">
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">차량 패키지</h3>
+            <p class="timeline-desc">탑승 공간, 부품 배치, 법규 요건을 고려한 차량 전체 레이아웃 설계</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">중량관리</h3>
+            <p class="timeline-desc">차종별 목표 중량 설정과 시스템별 중량 추적, 경량화 방안 도출</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">경쟁차 분석</h3>
+            <p class="timeline-desc">경쟁 차량의 구조, 사양, 원가를 분석해 개발 목표와 벤치마크 제시</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">전산개발</h3>
+            <p class="timeline-desc">설계·중량·분석 데이터를 다루는 업무 시스템 기획과 개발</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot"></span>
+            <h3 class="timeline-title">아키텍처 플랫폼 개발</h3>
+            <p class="timeline-desc">여러 차종이 공유하는 차체·섀시 아키텍처와 플랫폼 구조 개발</p>
+          </li>
+          <li class="timeline-item reveal">
+            <span class="timeline-dot timeline-dot-active"></span>
+            <h3 class="timeline-title">BOF 플랫폼 PM <span class="ml-2 text-xs font-semibold text-white bg-accent px-2 py-0.5 rounded-full align-middle">현재</span></h3>
+            <p class="timeline-desc">BOF 플랫폼의 전체 개발 일정, 사양, 부서 간 협업을 총괄</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ 전문 분야 ============ -->
+    <section id="skills" class="py-24 bg-slate-50 dark:bg-slate-900/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="section-title reveal">전문 분야</h2>
+        <p class="reveal -mt-6 mb-10 text-slate-500 dark:text-slate-400">자동차 구조 전문가로서 다뤄 온 영역입니다.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="skill-card reveal">
+            <div class="skill-icon">📐</div>
+            <h3 class="skill-title">차량 패키지</h3>
+            <p class="skill-desc">레이아웃, 탑승 공간, 부품 배치 최적화</p>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">⚖️</div>
+            <h3 class="skill-title">중량관리</h3>
+            <p class="skill-desc">목표 중량 수립, 추적, 경량화 전략</p>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🔍</div>
+            <h3 class="skill-title">경쟁차 분석</h3>
+            <p class="skill-desc">구조·사양 벤치마킹과 개발 목표 설정</p>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">💻</div>
+            <h3 class="skill-title">전산개발</h3>
+            <p class="skill-desc">엔지니어링 데이터 시스템 기획과 구축</p>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🏗️</div>
+            <h3 class="skill-title">아키텍처 플랫폼</h3>
+            <p class="skill-desc">차체·섀시 공용 플랫폼 구조 설계</p>
+          </div>
+          <div class="skill-card reveal">
+            <div class="skill-icon">🧭</div>
+            <h3 class="skill-title">플랫폼 PM</h3>
+            <p class="skill-desc">일정·사양 관리와 부서 간 협업 조율</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 프로젝트 ============ -->
+    <!-- 아래 카드는 예시입니다. 제목, 기간, 설명, 태그를 실제 내용으로 바꿔 주세요. -->
+    <section id="projects" class="py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <h2 class="section-title reveal">프로젝트</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <article class="project-card reveal">
+            <div class="flex items-center justify-between mb-3">
+              <span class="project-period">2020 – 현재</span>
+              <span class="project-role">PM</span>
+            </div>
+            <h3 class="project-title">BOF 플랫폼 개발 총괄</h3>
+            <p class="project-desc">
+              차세대 BOF 플랫폼의 개발 목표 수립부터 일정, 사양, 부서 간 협업까지 전체 과정을 이끌고 있습니다.
+            </p>
+            <ul class="project-tags">
+              <li>BOF</li><li>플랫폼</li><li>프로젝트 관리</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="flex items-center justify-between mb-3">
+              <span class="project-period">2014 – 2020</span>
+              <span class="project-role">개발 리드</span>
+            </div>
+            <h3 class="project-title">공용 아키텍처 플랫폼 구축</h3>
+            <p class="project-desc">
+              여러 차종이 함께 쓰는 차체·섀시 아키텍처를 정의해 개발 기간과 부품 수를 줄였습니다.
+            </p>
+            <ul class="project-tags">
+              <li>아키텍처</li><li>차체 구조</li><li>모듈화</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="flex items-center justify-between mb-3">
+              <span class="project-period">2008 – 2014</span>
+              <span class="project-role">기획·개발</span>
+            </div>
+            <h3 class="project-title">중량관리 시스템 개발</h3>
+            <p class="project-desc">
+              차종별 부품 중량을 한곳에서 추적하는 시스템을 만들어 중량 목표 관리를 자동화했습니다.
+            </p>
+            <ul class="project-tags">
+              <li>전산개발</li><li>중량관리</li><li>데이터</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="flex items-center justify-between mb-3">
+              <span class="project-period">2000 – 2008</span>
+              <span class="project-role">분석 담당</span>
+            </div>
+            <h3 class="project-title">경쟁차 벤치마킹 프로그램</h3>
+            <p class="project-desc">
+              경쟁 차량을 분해·분석해 구조와 사양을 비교하고, 신차 개발 목표를 세우는 데 활용했습니다.
+            </p>
+            <ul class="project-tags">
+              <li>벤치마킹</li><li>경쟁차 분석</li><li>패키지</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 연락처 ============ -->
+    <section id="contact" class="py-24 bg-ink text-white dark:bg-slate-900">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="reveal text-3xl sm:text-4xl font-bold mb-4">함께 이야기해요</h2>
+        <p class="reveal text-slate-300 mb-10">자동차 구조와 플랫폼에 관한 이야기라면 언제든 환영합니다.</p>
+        <div class="reveal flex flex-col sm:flex-row justify-center gap-4">
+          <a href="mailto:skytrekker119@gmail.com" class="contact-btn bg-accent hover:bg-blue-600">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>
+            </svg>
+            skytrekker119@gmail.com
+          </a>
+          <a href="https://github.com/musang3067" target="_blank" rel="noopener noreferrer" class="contact-btn bg-white/10 hover:bg-white/20">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.83 1.18 3.09 0 4.41-2.69 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+            </svg>
+            github.com/musang3067
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 하단 ============ -->
+  <footer class="py-8 text-center text-sm text-slate-500 dark:text-slate-500 bg-ink dark:bg-slate-900 border-t border-white/10">
+    © <span id="year"></span> 무상. All rights reserved.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
